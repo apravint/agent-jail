@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-jail"
+version = "0.1.0"
+description = "Rootless Bubblewrap Sandbox & Human-in-the-Loop Security Firewall for AI Agents"
+readme = "README.md"
+authors = [{ name = "Ayyappa Pravin", email = "apravint@gmail.com" }]
+license = { text = "MIT" }
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Security"
+]
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov"
+]
+
+[project.scripts]
+agent-jail = "agent_jail.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/apravint/agent-jail"
+Repository = "https://github.com/apravint/agent-jail"
+Issues = "https://github.com/apravint/agent-jail/issues"
