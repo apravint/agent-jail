@@ -177,6 +177,25 @@ def agent_bash_tool(command: str) -> str:
 
 ---
 
+## 📎 Paperclip Integration (Autonomous Company Sandboxing)
+
+In zero-human organizations powered by [Paperclip](https://github.com/paperclipai/paperclip), autonomous agents execute tasks, write code, and run bash commands on host machines. Wrap Paperclip agent runner executions in `agent-jail` to guarantee company tasks cannot escape their assigned workspace or tamper with host system files:
+
+```bash
+# Wrap Paperclip task runner commands in agent-jail
+agent-jail --workspace /path/to/paperclip/company/workspace -- "npm test && npm run build"
+```
+
+In your Paperclip agent configuration or custom execution plugin:
+```json
+{
+  "executionRunner": "agent-jail",
+  "runnerArgs": ["--workspace", "${issue.workspaceDir}", "--timeout", "60", "--"]
+}
+```
+
+---
+
 ## 🛡️ Security Guarantees
 
 | Attack Vector | Protection Mechanism |
